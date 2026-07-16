@@ -5,6 +5,7 @@
 
 .container {
     width: 100%;
+    display: block;
     align-items: center;
     justify-items: center;
     text-align: center; 
