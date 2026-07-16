@@ -1,23 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Portfolio</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        /* Reset and Base Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; color: #333; line-height: 1.6; background: #f9f9f9; }
+        
+        /* Layout Containers */
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        section { margin-bottom: 60px; }
+        
+        /* Typography */
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: #111; }
+        h2 { font-size: 1.8rem; margin-bottom: 20px; color: #222; border-bottom: 2px solid #ddd; padding-bottom: 8px; }
+        h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        p { margin-bottom: 15px; color: #555; }
+        
+        /* Links and Buttons */
+        a { color: #0969da; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .btn { display: inline-block; background: #24292f; color: white; padding: 10px 20px; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+        .btn:hover { background: #1f2328; text-decoration: none; }
+
+        /* Project Cards */
+        .project-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        @media (min-width: 600px) { .project-grid { grid-template-columns: 1fr 1fr; } }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e1e4e8; }
+        .tags { margin: 10px 0; }
+        .tag { background: #eff1f3; font-size: 0.85rem; padding: 4px 8px; border-radius: 4px; margin-right: 5px; color: #444; }
+        
+        /* Footer Contact */
+        .contact-links a { margin-right: 20px; font-weight: bold; }
+    </style>
 </head>
 <body>
-<script src="https://jurnttt.github.io/merlin/nav.js"></script>
-<div class="container">
-    <h1>Home Page</h1>
-    <img src="house-svgrepo-com.svg" class="home" alt="Picture of a house">
-    <div class="welcome">
-        <p>Welcome to my Portfolio.</p>
-        <p>Click on the menu items...</p>
+
+    <div class="container">
+        <!-- Header / About Me -->
+        <header class="section">
+            <h1>Hi, I'm [Your Name] 👋</h1>
+            <p>I am a [Your Role/Profession, e.g., Frontend Developer] passionate about building clean, functional web applications. Welcome to my personal space on GitHub.</p>
+            <a href="mailto:your.email@example.com" class="btn">Get In Touch</a>
+        </header>
+
+        <!-- Featured Projects -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                
+                <!-- Project 1 -->
+                <div class="card">
+                    <h3>Project Name One</h3>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <p>A brief description of what this project does, the problem it solves, and your role in developing it.</p>
+                    <a href="#" target="_blank">View Code &rarr;</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card">
+                    <h3>Project Name Two</h3>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">API</span>
+                    </div>
+                    <p>A brief description of what this project does, the problem it solves, and your role in developing it.</p>
+                    <a href="#" target="_blank">View Code &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <footer class="section">
+            <h2>Connect With Me</h2>
+            <p>I am always open to discussing new projects, opportunities, or tech trends.</p>
+            <div class="contact-links">
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:your.email@example.com">Email</a>
+            </div>
+        </footer>
     </div>
-</div>
+
 </body>
 </html>
