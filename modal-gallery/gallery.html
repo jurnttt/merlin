@@ -46,10 +46,12 @@ var span = document.querySelector(".close");
 function addListener(event, obj, fn) {
 	obj.addEventListener(event, fn, false);
 }
-	
 
+// When the user clicks on <span> (x), close the modal
+span.addEventListener('click', (event) => {
+  modal.style.display = "none";
+});
 	
-
 // loop through each image and give it an addListener
 for (let i = 1; i <= 4; i++) {
 	let div = document.getElementById(i);
@@ -63,10 +65,7 @@ for (let i = 1; i <= 4; i++) {
 	
 }
 
-// When the user clicks on <span> (x), close the modal
-span.addEventListener('click', (event) => {
-  modal.style.display = "none";
-});
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
