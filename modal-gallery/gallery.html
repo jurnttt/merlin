@@ -5,14 +5,153 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <style>
+        /* Base Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* 1. Gallery Grid Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 2. Modal Overlay Hidden By Default */
+        .modal {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* 3. Modal Content Styles */
+        .modal-content {
+            max-width: 85%;
+            max-height: 80%;
+            border-radius: 4px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-caption {
+            color: #fff;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #ff4d4d;
+        }
+
+        /* Zoom Animation */
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
 <script src="https://jurnttt.github.io/merlin/nav.js"></script>
-<p>Modal Gallery - Work in Progress 2026</p>
-  <img id="4" src="bird4.jpg" height="200px" width="200px">
+<h2>My Image Gallery</h2>
+
+    <!-- Image Grid (Thumbnails) -->
+    <div class="gallery-grid">
+        <img class="gallery-item" src="bird1.jpg" alt="Beautiful Mountain Sunrise">
+        <img class="gallery-item" src="bird2.jpg" alt="Calm Ocean Waves">
+        <img class="gallery-item" src="bird3.jpg" alt="Deep Forest Pathway">
+        <img class="gallery-item" src="bird4.jpg" alt="City Skyline at Night">
+    </div>
+
+    <!-- The Modal Container -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImg" src="" alt="">
+        <div id="caption" class="modal-caption"></div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+    // DOM Elements
+	const modal = document.getElementById("imageModal");
+	const modalImg = document.getElementById("modalImg");
+	const captionText = document.getElementById("caption");
+	const closeBtn = document.getElementById("closeModal");
+	const galleryItems = document.querySelectorAll(".gallery-item");
+
+   // Modern Event Listener utilizing Arrow Functions and Event Event Properties
+	galleryItems.forEach(item => {
+    	item.addEventListener("click", (e) => {
+        modal.style.display = "flex";
+        modalImg.src = e.currentTarget.src;       // Using e.currentTarget instead of 'this'
+        captionText.textContent = e.currentTarget.alt; // textContent is preferred over innerText
+    });
+});
+
+// Close Modal via Close Button
+closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+// Close Modal via Outside Clicking (Overlay)
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+});
+
+// 2026 Accessibility Standard: Keyboard Support (Esc Key)
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "flex") {
+        modal.style.display = "none";
+    }
+});       
+    </script>
+
+</body>
+
 </body>
 
 
