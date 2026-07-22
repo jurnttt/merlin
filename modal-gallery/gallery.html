@@ -11,69 +11,9 @@
 </head>
 <body>
 <script src="https://jurnttt.github.io/merlin/nav.js"></script>
-	<div class="gallery">
-		<div>
-			<img id="1" src="bird1.jpg" height="200px" width="200px">
-		</div>
-		<div>
-			<img id="2"src="bird2.jpg" height="200px" width="200px">
-		</div>
-		<div>
-			<img id="3"src="bird3.jpg" height="200px" width="200px">
-		</div>
-		<div>
-			<img id="4" src="bird4.jpg" height="200px" width="200px">
-		</div>
-	</div>
-	<!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-      <span class="close">&times;</span>
-	      <div class="modal-body">
-			<img id="modal-image" src="">
-		  </div>
-  </div>
-</div>
+<p>Modal Gallery - Work in Progress</p>
 </body>
 
-<script>
 
-var modal = document.getElementById("myModal");
-let modalImage = document.getElementById("modal-image");
-var span = document.querySelector(".close");
-
-function addListener(event, obj, fn) {
-	obj.addEventListener(event, fn, false);
-}
-
-// When the user clicks on <span> (x), close the modal
-span.addEventListener('click', (event) => {
-  modal.style.display = "none";
-});
-	
-// loop through each image and give it an addListener
-for (let i = 1; i <= 4; i++) {
-	let div = document.getElementById(i);
-	addListener('click', div, function () {
-	modal.style.display = "block";
-	
-	// set the src of the image clicked in the modal
-	modalImage.src = div.src;
-	
-	});
-	
-}
-
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-</script>
 
 </html>
